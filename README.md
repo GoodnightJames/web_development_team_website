@@ -60,6 +60,24 @@ See `.env.example`. The only one needed for the marketing site today is:
 Form-delivery vars (`RESEND_API_KEY`, `INQUIRY_TO_EMAIL`) are stubbed in the
 example file and will be wired up when the inquiry action is connected.
 
+## Gallery
+
+`src/data/gallery.ts` holds the gallery manifest — an array of items with
+`category`, `caption`, `alt`, `aspect`, and an optional `src`. Drop images
+into `public/gallery/` and reference them by path (e.g. `/gallery/detail-001.jpg`)
+in the `src` field. Until `src` is set, tiles render as on-brand gradient
+placeholders so the page is presentable on launch.
+
+Image prep:
+
+- Export from the Hasselblad library at ~1600&ndash;2000px on the long edge,
+  80&ndash;85% JPEG quality. Next.js will further optimize on serve.
+- Square / portrait / landscape are all supported &mdash; set the `aspect`
+  field accordingly for the layout to balance.
+- Once the library outgrows `public/` (roughly &gt;100MB), switch to Vercel
+  Blob, Cloudinary, or S3 by updating the `src` paths in
+  `src/data/gallery.ts`. No other code changes needed.
+
 ## Deploy (Vercel)
 
 1. Import the repo at https://vercel.com/new — framework is auto-detected.
