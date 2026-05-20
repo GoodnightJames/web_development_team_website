@@ -46,12 +46,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    name: "Seaside Garage and Detailing",
+    url: siteUrl,
+    description:
+      "Precision automotive service and high-end detailing on the coast.",
+    department: [
+      {
+        "@type": "AutomotiveBusiness",
+        name: "Seaside Garage — Special Automotive Project",
+        description:
+          "Laser alignment, wheel repair, mounting and balancing.",
+        url: `${siteUrl}/automotive`,
+      },
+      {
+        "@type": "AutoWash",
+        name: "Seaside Detailing",
+        description:
+          "High-end detailing: paint correction, ceramic coatings, interior restoration.",
+        url: `${siteUrl}/detailing`,
+      },
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sand-50 text-ocean-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
