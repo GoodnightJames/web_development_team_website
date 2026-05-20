@@ -14,13 +14,31 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Seaside Garage and Detailing",
     template: "%s | Seaside Garage and Detailing",
   },
   description:
     "Precision automotive service and high-end detailing on the coast. Laser alignment, wheel repair, mounting and balancing, and concours-grade detailing.",
+  openGraph: {
+    type: "website",
+    siteName: "Seaside Garage and Detailing",
+    url: siteUrl,
+    title: "Seaside Garage and Detailing",
+    description:
+      "Precision automotive service and high-end detailing on the coast.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seaside Garage and Detailing",
+    description:
+      "Precision automotive service and high-end detailing on the coast.",
+  },
 };
 
 export default function RootLayout({
