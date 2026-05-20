@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Automotive",
   description:
     "Special Automotive Project: laser alignment, wheel repair, mounting and balancing.",
+  alternates: { canonical: "/automotive" },
 };
 
 const services = [

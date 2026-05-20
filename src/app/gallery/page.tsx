@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Gallery",
   description:
     "Work from the shop and the compound — detailing, automotive, and the place itself.",
+  alternates: { canonical: "/gallery" },
 };
 
 const hasRealPhotos = galleryItems.some((i) => i.src);

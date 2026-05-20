@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "About Seaside Garage and Detailing — two specialties, one coastal shop.",
+  alternates: { canonical: "/about" },
 };
 
 export default function About() {

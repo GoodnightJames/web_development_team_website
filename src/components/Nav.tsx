@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNav } from "@/components/MobileNav";
 
 const links = [
   { href: "/automotive", label: "Automotive" },
@@ -50,14 +51,7 @@ export function Nav() {
             Book a service
           </Link>
         </nav>
-        <nav className="md:hidden flex items-center gap-4 text-sm">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-ocean-900 text-sand-50 px-3 py-1.5 text-xs"
-          >
-            Contact
-          </Link>
-        </nav>
+        <MobileNav links={links} />
       </div>
     </header>
   );

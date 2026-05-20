@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Request a quote or book a service at Seaside Garage and Detailing.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function Contact() {

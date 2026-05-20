@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Detailing",
   description:
     "High-end detailing: paint correction, ceramic coatings, full interior restoration.",
+  alternates: { canonical: "/detailing" },
 };
 
 const packages = [

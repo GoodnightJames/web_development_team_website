@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Common questions about appointments, alignment, wheel repair, paint correction, and ceramic coatings at Seaside Garage and Detailing.",
+  alternates: { canonical: "/faq" },
 };
 
 type FaqItem = { question: string; answer: string };
