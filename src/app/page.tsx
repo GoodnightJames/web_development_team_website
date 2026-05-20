@@ -8,24 +8,58 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-[88vh] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-ocean-900 via-ocean-800 to-ocean-700" />
+
         <div
           aria-hidden
-          className="absolute inset-0 opacity-20 mix-blend-screen"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35), transparent 40%), radial-gradient(circle at 80% 0%, rgba(184,108,63,0.4), transparent 45%)",
-          }}
+          className="absolute -top-32 -left-32 w-[40rem] h-[40rem] rounded-full bg-sand-100/15 blur-3xl mix-blend-screen animate-float-slow"
         />
-        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32 text-sand-50">
-          <p className="text-xs uppercase tracking-[0.3em] text-sand-300">
+        <div
+          aria-hidden
+          className="absolute -top-40 right-[-10rem] w-[36rem] h-[36rem] rounded-full bg-copper-500/25 blur-3xl mix-blend-screen animate-float-slower"
+        />
+
+        <svg
+          aria-hidden
+          className="absolute inset-0 h-full w-full text-sand-100/30"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <linearGradient id="hero-line" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+              <stop offset="50%" stopColor="currentColor" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <g
+            stroke="url(#hero-line)"
+            strokeWidth="1.25"
+            fill="none"
+            strokeLinecap="round"
+          >
+            <path d="M -50 300 Q 300 250, 600 320 T 1250 290" />
+            <path d="M -50 420 Q 300 380, 600 440 T 1250 410" />
+            <path d="M -50 540 Q 300 500, 600 560 T 1250 530" />
+            <path d="M -50 660 Q 300 620, 600 680 T 1250 650" />
+            <path d="M -50 760 Q 300 720, 600 780 T 1250 750" />
+          </g>
+        </svg>
+
+        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32 text-sand-50 w-full">
+          <p className="text-xs uppercase tracking-[0.3em] text-sand-300 flex items-center gap-3">
+            <span aria-hidden className="h-px w-8 bg-sand-300/60" />
             Coastal automotive craft
           </p>
-          <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-            Two shops. One standard. The coast&apos;s.
+          <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.02] max-w-3xl">
+            Two shops.
+            <br />
+            One standard.
+            <br />
+            <span className="text-sand-300">The coast&apos;s.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sand-100/85 text-lg leading-relaxed">
+          <p className="mt-8 max-w-xl text-sand-100/85 text-lg leading-relaxed">
             Seaside Garage and Detailing is two specialties under one roof:
             precision mechanical work for the cars you drive hard, and high-end
             detailing for the cars you show off.
@@ -33,21 +67,53 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full bg-copper-500 text-sand-50 px-6 py-3 text-sm hover:bg-copper-600 transition-colors"
+              className="group inline-flex items-center rounded-full bg-copper-500 text-sand-50 px-6 py-3 text-sm hover:bg-copper-600 transition-colors"
             >
               Book a service
+              <span
+                aria-hidden
+                className="ml-2 transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
             <Link
-              href="/automotive"
-              className="inline-flex items-center rounded-full border border-sand-100/30 text-sand-50 px-6 py-3 text-sm hover:bg-sand-50/10 transition-colors"
+              href="/gallery"
+              className="group inline-flex items-center rounded-full border border-sand-100/30 text-sand-50 px-6 py-3 text-sm hover:bg-sand-50/10 hover:border-sand-100/50 transition-colors"
             >
               See the work
+              <span
+                aria-hidden
+                className="ml-2 transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
           </div>
         </div>
+
+        <a
+          href="#shops"
+          aria-label="Scroll to services"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-sand-100/70 hover:text-sand-50 animate-scroll-cue"
+        >
+          <svg
+            aria-hidden
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </a>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section id="shops" className="mx-auto max-w-6xl px-6 py-20 scroll-mt-20">
         <div className="grid gap-8 md:grid-cols-2">
           <ShopCard
             kicker="The garage"
