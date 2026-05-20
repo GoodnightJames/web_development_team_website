@@ -5,12 +5,19 @@ const links = [
   { href: "/detailing", label: "Detailing" },
   { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
   return (
     <header className="border-b border-ocean-900/10 bg-sand-50/90 backdrop-blur sticky top-0 z-40">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-ocean-900 focus:text-sand-50 focus:px-3 focus:py-2 focus:text-sm"
+      >
+        Skip to content
+      </a>
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <span

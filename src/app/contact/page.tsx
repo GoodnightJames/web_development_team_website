@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { InquiryForm } from "@/components/InquiryForm";
 
@@ -53,7 +54,15 @@ export default function Contact() {
           </aside>
 
           <div className="md:col-span-2">
-            <InquiryForm />
+            <Suspense
+              fallback={
+                <div className="rounded-2xl bg-white border border-ocean-900/10 p-8 text-sm text-ocean-900/60">
+                  Loading form…
+                </div>
+              }
+            >
+              <InquiryForm />
+            </Suspense>
           </div>
         </div>
       </section>

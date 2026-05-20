@@ -33,6 +33,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/faq" className="hover:text-copper-500">
+                FAQ
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="hover:text-copper-500">
                 Book a service
               </Link>

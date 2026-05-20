@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 const packages = [
   {
+    key: "detailing-maintenance",
     name: "Maintenance Detail",
     tagline: "Keep a coated car looking new.",
     points: [
@@ -19,6 +20,7 @@ const packages = [
     ],
   },
   {
+    key: "detailing-correction",
     name: "Paint Correction",
     tagline: "Bring the finish back to factory or better.",
     points: [
@@ -29,6 +31,7 @@ const packages = [
     ],
   },
   {
+    key: "detailing-ceramic",
     name: "Ceramic Coating",
     tagline: "Years of protection, climate-controlled application.",
     points: [
@@ -39,6 +42,7 @@ const packages = [
     ],
   },
   {
+    key: "detailing-interior",
     name: "Interior Restoration",
     tagline: "Leather, carpet, headliner. Back to new.",
     points: [
@@ -81,7 +85,7 @@ export default function Detailing() {
         <div className="grid gap-6 md:grid-cols-2">
           {packages.map((p) => (
             <article
-              key={p.name}
+              key={p.key}
               className="rounded-2xl bg-white border border-ocean-900/10 p-8 flex flex-col"
             >
               <h2 className="font-display text-2xl">{p.name}</h2>
@@ -97,6 +101,13 @@ export default function Detailing() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={{ pathname: "/contact", query: { service: p.key } }}
+                className="mt-6 inline-flex items-center text-sm text-ocean-700 hover:text-copper-600 self-start"
+              >
+                Request a quote
+                <span aria-hidden className="ml-1.5">→</span>
+              </Link>
             </article>
           ))}
         </div>

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    key: "automotive-alignment",
     title: "Laser wheel alignment",
     summary:
       "Four-wheel laser alignment on a Hunter-class rack. Set to factory spec or a custom street/track sheet you can take home.",
@@ -19,6 +20,7 @@ const services = [
     ],
   },
   {
+    key: "automotive-wheel-repair",
     title: "Wheel repair",
     summary:
       "Straightening, weld repair, and refinishing for alloy wheels that have met a curb, a pothole, or a bad day.",
@@ -29,6 +31,7 @@ const services = [
     ],
   },
   {
+    key: "automotive-mount-balance",
     title: "Mounting and balancing",
     summary:
       "Touchless mounting and Road Force balancing for performance and OEM wheels. The tire shop you call when the other one gave up.",
@@ -63,8 +66,8 @@ export default function Automotive() {
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((s) => (
             <article
-              key={s.title}
-              className="rounded-2xl border border-ocean-900/10 bg-white p-8"
+              key={s.key}
+              className="rounded-2xl border border-ocean-900/10 bg-white p-8 flex flex-col"
             >
               <h2 className="font-display text-2xl">{s.title}</h2>
               <p className="mt-3 text-ocean-900/75 leading-relaxed">
@@ -81,6 +84,13 @@ export default function Automotive() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={{ pathname: "/contact", query: { service: s.key } }}
+                className="mt-6 inline-flex items-center text-sm text-ocean-700 hover:text-copper-600 self-start"
+              >
+                Request a quote
+                <span aria-hidden className="ml-1.5">→</span>
+              </Link>
             </article>
           ))}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitInquiry, type InquiryState } from "@/app/contact/actions";
 
 const initialState: InquiryState = { status: "idle" };
@@ -19,7 +20,16 @@ const serviceOptions = [
   ]},
 ];
 
+const validServiceValues = new Set([
+  ...serviceOptions.flatMap((g) => g.options.map((o) => o.value)),
+  "other",
+]);
+
 export function InquiryForm() {
+  const params = useSearchParams();
+  const requested = params.get("service");
+  const initialService =
+    requested && validServiceValues.has(requested) ? requested : "";
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
 
   if (state.status === "ok") {
@@ -52,7 +62,7 @@ export function InquiryForm() {
         <select
           name="service"
           required
-          defaultValue=""
+          defaultValue={initialService}
           className="w-full rounded-lg border border-ocean-900/15 bg-white px-3 py-2.5 text-sm focus:border-ocean-700 focus:outline-none focus:ring-2 focus:ring-ocean-700/20"
         >
           <option value="" disabled>Pick a service…</option>
